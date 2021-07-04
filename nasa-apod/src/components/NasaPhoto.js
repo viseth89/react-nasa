@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useState, useEffect } from 'react'
 
 export default function NasaPhoto() {
     const [photoData, setPhotoData] = useState(null);
@@ -16,9 +17,17 @@ export default function NasaPhoto() {
             const data = await res.json();
             setPhotoData(data)
         }
-    })
+    }, [])
+
+    if(!photoData) return <div />
+
 
     return (
-
+        <div>
+            <img 
+                src = {photoData.url}
+                alt = {photoData.url}
+            />
+        </div>
     )
 }
