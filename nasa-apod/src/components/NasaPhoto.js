@@ -24,7 +24,23 @@ export default function NasaPhoto() {
 
   return (
     <div>
-      <img src={photoData.url} alt={photoData.url} />
+
+        {photoData.media_type === "image" ? (
+            
+            <img src={photoData.url} alt={photoData.url} />
+
+        ) : (
+            <iframe 
+                title="space-video"
+                src={photoData.url}
+                frameBorder="0"
+                gesture='media'
+                allow='encrypted-media'
+                allowFullScreen
+                className='photo'
+            />
+)}
+
 
       <h1>{photoData.title}</h1>
       <p></p>
