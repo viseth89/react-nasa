@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+const apiKey = process.env.REACT_APP_NASA_KEY;
+
 export default function NasaPhoto() {
   const [photoData, setPhotoData] = useState(null);
 
@@ -12,7 +14,7 @@ export default function NasaPhoto() {
     // Will continue to follow to learn more about her thought process.
     async function fetchPhoto() {
       const res = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=Txbals3ag1fH0pPbwrcjdn4MnIZbYbdVDhCIn7qm`
+        `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
       );
       const data = await res.json();
       setPhotoData(data);
